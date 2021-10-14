@@ -13,12 +13,20 @@ class UseController {
     const result = await this.userRepository.create({ name, email, password });
     response.status(201).json({ serverResponse: result });
   }
-  public update(request: Request, response: Response) {}
   public async get(request: Request, response: Response) {
     const result = await this.userRepository.find({});
     response.status(201).json({ serverResponse: result });
   }
-  public delete(request: Request, response: Response) {}
+  public async update(request: Request, response: Response) {
+      //NUEVO
+      const result = await this.userRepository.update();
+      response.status(201).json({ serverResponse: result });
+  }
+  public async delete(request: Request, response: Response) {
+      //NUEVO
+      const result = await this.userRepository.delete();
+      response.status(201).json({ serverResponse: result });
+  }
   public login(request: Request, response: Response) {}
   public singOut(request: Request, response: Response) {}
 }
